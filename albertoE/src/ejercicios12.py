@@ -33,7 +33,10 @@ class Notificador:
     def notificar( self, mensaje):
         self.service.enviar_email(mensaje)
 
-
+service_email= ServiceEmail()
+notifica = Notificador()
+notifica.set_email_service(service_email=service_email)
+notifica.notificar("Contenido setter")
 
 class MotorBase(ABC):
     @abstractmethod
@@ -49,7 +52,7 @@ class Auto:
         self.motor = motor_base
 
     def arrancar(self):
-        self.motor.encender
+        self.motor.encender()
 
 auto = Auto(MotorElectrico())
 auto.arrancar()
